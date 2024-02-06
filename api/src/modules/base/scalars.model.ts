@@ -4,9 +4,11 @@ export const DateTime = new GraphQLScalarType({
   name: 'DateTime',
   description: 'Represents a date time object',
   serialize(value) {
+    // @ts-ignore
     return value.toISOString() // Convert outgoing Date to ISOString for JSON
   },
   parseValue(value) {
+    // @ts-ignore
     return new Date(value) // Convert incoming integer to Date
   },
   parseLiteral(ast) {
