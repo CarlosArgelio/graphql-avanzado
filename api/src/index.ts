@@ -1,39 +1,6 @@
 import { ApolloServer } from 'apollo-server'
-
-// 1 - Query
-const typeDefs = `
-  type Query {
-    info: String!
-    avos: [Avo!]!
-    avo(id: ID!): Avo
-  }
-
-  type Mutation {
-    addAvo: addAvo!
-  }
-
-  type addAvo {
-    dataAvo: Avo!
-  }
-
-  type Avo {
-    id: ID!
-    name: String!
-    url: String!
-    title: String!
-    SKU: String!
-    description: String!
-    attributes: AvoAttribute!
-    price: Float!
-    image: String!
-  }
-
-  type AvoAttribute {
-    Shape: String
-    Hardiness: Int
-    Taste: String
-  }
-`
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 // 2 - Resolvers
 const resolvers = {
@@ -110,6 +77,8 @@ const resolvers = {
     }
   }
 }
+
+const typeDefs = readFileSync(join(__dirname, './schema.graphql'), 'utf-8')
 
 // 3 - Init Server
 const server = new ApolloServer({
