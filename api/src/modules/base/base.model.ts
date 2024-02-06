@@ -1,6 +1,6 @@
 export type BaseModel = {
   id: String
-  createdAt: String
-  updatedAt: String
-  deletedAt: String
+  createdAt: Date
+  updatedAt: Date | undefined
+  deletedAt: Date | undefined
 }

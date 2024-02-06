@@ -9,8 +9,6 @@ export type Attributes = {
 
 export type Avo = BaseModel & {
   name: String
-  url: String
-  title: String
   SKU: String
   price: Number
   image: String
