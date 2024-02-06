@@ -18,13 +18,13 @@ type Query {
     url: String!
     title: String!
     SKU: String!
-    description: String!
     attributes: AvoAttribute!
     price: Float!
     image: String!
   }
 
   type AvoAttribute {
+        description: String!
     Shape: String
     Hardiness: Int
     Taste: String

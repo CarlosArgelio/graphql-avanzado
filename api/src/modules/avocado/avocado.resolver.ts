@@ -1,3 +1,15 @@
+import { Avo } from './avocado.model'
+
+const avo: Avo[] = [
+  {
+    id: "T34PI7BGF",
+    createdAt: "",
+    updatedAt: "",
+    deletedAt: "",
+  }
+]
+
+
 export default {
   listAvos() {
     return [
