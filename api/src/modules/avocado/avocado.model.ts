@@ -1,16 +1,17 @@
-import { BaseModel } from './../base/base.model'
+import { BaseModel } from '../base/base.model'
 
 export type Attributes = {
-  description: String
-  shape: String
-  hardiness: String
-  taste: String
+  description: string | null
+  shape: string | null
+  hardiness: string | null
+  taste: string | null
 }
 
-export type Avo = BaseModel & {
-  name: String
-  SKU: String
-  price: Number
-  image: String
+export type Avocado = BaseModel & {
+  id: string
+  name: string
+  sku: string
+  price: number
+  image: string
   attributes: Attributes
 }

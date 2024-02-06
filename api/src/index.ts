@@ -1,14 +1,13 @@
 import { ApolloServer } from 'apollo-server'
+import path from 'path'
 import { readFileSync } from 'fs'
-import { join } from 'path'
 import resolvers from './resolvers'
 
-const typeDefs = readFileSync(join(__dirname, './schema.graphql'), 'utf-8')
+const typeDefs = readFileSync(path.join(__dirname, 'schema.graphql'), 'utf8')
 
-// 3 - Init Server
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 })
 
-server.listen().then(({ url }) => console.log(`Server running on ${url}`))
+server.listen().then(({ url }) => console.log(`Server is running on ${url}`))

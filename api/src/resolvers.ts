@@ -1,11 +1,14 @@
 import * as avo from './modules/avocado/avocado.resolver'
+import * as scalars from './modules/base/scalars.model'
 
 export default {
+  ...scalars,
   Query: {
-    avos: () => avo.listAvos,
-    avo: () => avo.findAvo
+    avo: avo.findOne,
+    avos: avo.findAll,
   },
   Mutation: {
-    addAvo: (_: any, {name}: any) => avo.default.addAvo
-  }
+    createAvo: avo.createAvo,
+  },
+  Avocado: avo.resolver,
 }

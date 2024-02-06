@@ -1,31 +1,47 @@
+scalar DateTime
+
 type Query {
-    info: String!
-    avos: [Avo!]!
-    avo(id: ID!): Avo
-  }
+  avos: [Avocado]!
+  avo(id: ID!): Avocado
+}
 
-  type Mutation {
-    addAvo: addAvo!
-  }
+type Mutation {
+  createAvo(data: AvoCreateInput!): Avocado!
+}
 
-  type addAvo {
-    dataAvo: Avo!
-  }
+interface BaseModel {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
 
-  type Avo {
-    id: ID!
-    name: String!
-    url: String!
-    title: String!
-    SKU: String!
-    attributes: AvoAttribute!
-    price: Float!
-    image: String!
-  }
+type Attributes {
+  description: String
+  shape: String
+  hardiness: String
+  taste: String
+}
 
-  type AvoAttribute {
-        description: String!
-    Shape: String
-    Hardiness: Int
-    Taste: String
-  }
+type Avocado implements BaseModel {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  deletedAt: DateTime
+
+  name: String!
+  sku: String!
+  price: Float!
+  image: String!
+  attributes: Attributes!
+}
+
+input AvoCreateInput {
+  name: String!
+  price: Float!
+  image: String!
+  description: String
+  shape: String
+  hardiness: String
+  taste: String
+}
